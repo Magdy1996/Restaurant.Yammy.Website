@@ -1654,3 +1654,11 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+/* styles.css */
+
+.highlighted-text {
+  font-weight: bold;
+  color: red;
+  font-size: 1.2em; /* Adjust as needed for larger size */
+}
