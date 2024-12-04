@@ -1,0 +1,291 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General Styles */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-image: url('images/breakfast-background.jpg'); /* Add your background image here */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    position: relative;
+}
+
+/* Overlay to enhance readability */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(244, 241, 234, 0.8); /* Light overlay */
+    z-index: -1;
+}
+
+header {
+    background-color: rgba(44, 62, 80, 0.9); /* Semi-transparent background */
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    color: #ecf0f1;
+    font-family: 'Playfair Display', serif;
+    font-size: 3em;
+    letter-spacing: 2px;
+}
+
+main {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background for readability */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Menu Section Styling */
+.menu-section {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Smaller Images */
+.section-image {
+    width: 30%; /* Reduced from 40% */
+    max-width: 300px; /* Reduced max-width */
+    height: auto;
+    object-fit: cover;
+    z-index: 2;
+}
+
+/* Menu Content Styling */
+.menu-content {
+    padding: 20px 30px;
+    width: 70%; /* Adjusted to complement smaller images */
+    position: relative;
+    z-index: 2;
+}
+
+.menu-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2em;
+    color: #e67e22;
+    margin-bottom: 10px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.menu-content h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    border-bottom: 4px solid #e67e22; /* Bold line below section headers */
+}
+
+.menu-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5em;
+    color: #e67e22;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.menu-content p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+/* Menu List Styling */
+.menu-list {
+    list-style-type: none;
+}
+
+.menu-list > li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    position: relative;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #ccc; /* Dashed line between menu items */
+}
+
+.menu-list > li:last-child {
+    border-bottom: none; /* Remove border from last item */
+}
+
+.menu-list > li:hover {
+    background-color: #f0e6d2;
+    border-bottom: 1px dashed #e67e22;
+    transition: background-color 0.3s, border-bottom-color 0.3s;
+}
+
+.meal-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2em;
+}
+
+.price {
+    font-weight: bold;
+    color: #e74c3c; /* Red color for prices */
+}
+
+/* Decorative Lines Between Every Two Sections */
+.decorative-line {
+    width: 80%;
+    height: 2px;
+    background-color: #e67e22;
+    margin: 40px auto;
+    border-radius: 1px;
+    /* Optional: Add a pattern or gradient */
+    background-image: linear-gradient(to right, #e67e22, #ecf0f1, #e67e22);
+}
+
+/* Nested Lists Styling */
+.menu-list li ul {
+    list-style-type: disc;
+    margin-left: 30px;
+    margin-top: 5px;
+    color: #666;
+    font-size: 1em;
+}
+
+.menu-list li ul li {
+    margin-bottom: 5px;
+    padding-left: 15px;
+}
+
+/* Footer Styling */
+footer {
+    background-color: rgba(44, 62, 80, 0.9); /* Semi-transparent background */
+    color: #ecf0f1;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 0.9em;
+}
+
+/* Responsive Design */
+
+/* Tablets and Small Laptops */
+@media (max-width: 1024px) {
+    .menu-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .section-image, .menu-content {
+        width: 100%;
+    }
+
+    .section-image {
+        max-width: 250px; /* Further reduce image size */
+    }
+
+    .menu-content {
+        padding: 20px;
+    }
+
+    .decorative-line {
+        width: 90%;
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    .menu-content h2 {
+        font-size: 1.8em;
+    }
+
+    .menu-content h3 {
+        font-size: 1.3em;
+    }
+
+    .menu-content p, .menu-list > li {
+        font-size: 1em;
+    }
+
+    .section-image {
+        max-width: 200px; /* Further reduce image size */
+    }
+
+    .decorative-line {
+        width: 95%;
+    }
+}
+
+/* iPad Pro and Larger Devices */
+@media (min-width: 1200px) {
+    .menu-section {
+        flex-direction: row;
+    }
+
+    .section-image {
+        width: 25%; /* Even smaller images on larger screens */
+        max-width: 350px;
+    }
+
+    .menu-content {
+        width: 75%;
+    }
+
+    .decorative-line {
+        width: 70%;
+    }
+}
+
+/* Additional Enhancements */
+
+/* Hover Effects for Menu Items */
+.menu-list > li:hover {
+    background-color: #f0e6d2;
+    border-bottom: 1px dashed #e67e22;
+    transition: background-color 0.3s, border-bottom-color 0.3s;
+}
+
+/* Ensure menu sections are above the overlay */
+.menu-section {
+    position: relative;
+    z-index: 1;
+}
+
+/* Optional: Background image specific to menu sections */
+/*
+.menu-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/section-background.png'); 
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1;
+    z-index: 1;
+}
+*/
