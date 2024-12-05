@@ -1662,3 +1662,119 @@ section,
   color: red;
   font-size: 1.2em; /* Adjust as needed for larger size */
 }
+
+
+/* Base styles for the menu-link */
+.menu-link {
+  color: #333; /* Default text color */
+  position: relative; /* Establishes a positioning context for the triangle */
+  text-decoration: none; /* Removes the underline from links */
+  transition: color 0.3s ease; /* Smooth transition for text color */
+  cursor: pointer; /* Changes cursor to pointer on hover */
+}
+
+/* Styles for the triangle using a pseudo-element */
+.menu-link::after {
+  content: ''; /* No textual content */
+  position: absolute;
+  right: -20px; /* Positions the triangle to the right of the text */
+  top: 50%; /* Vertically centers the triangle */
+  transform: translateY(-50%); /* Adjusts for exact vertical centering */
+  border: solid transparent; /* Creates an invisible border */
+  border-width: 5px 0 5px 5px; /* Defines the size and direction of the triangle */
+  border-left-color: #333; /* Initial triangle color matching the text */
+  opacity: 0; /* Hides the triangle by default */
+  transition: opacity 0.3s ease, border-left-color 0.3s ease, transform 0.3s ease; /* Smooth transitions for appearance, color, and position */
+}
+
+/* Hover effect on the menu-link */
+.menu-link:hover {
+  color: #FF5733; /* Changes text color on hover (example: a vibrant red-orange) */
+}
+
+/* Hover effect for the triangle */
+.menu-link:hover::after {
+  opacity: 1; /* Makes the triangle visible */
+  border-left-color: #007BFF; /* Changes triangle color to a distinct blue */
+  transform: translateY(-50%) translateX(5px); /* Moves the triangle slightly to the right for emphasis */
+}
+
+/* Accessible focus state */
+.menu-link:focus {
+  color: #FF5733;
+}
+
+.menu-link:focus::after {
+  opacity: 1;
+  border-left-color: #007BFF;
+  transform: translateY(-50%) translateX(5px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .menu-link::after {
+    right: -15px; /* Adjust position for smaller screens */
+    border-width: 4px 0 4px 4px; /* Slightly smaller triangle */
+  }
+
+  .menu-link:hover::after {
+    transform: translateY(-50%) translateX(3px);
+  }
+}
+
+/* Styles for the arrow icon */
+.arrow-icon {
+  display: inline-block;
+  margin-left: 5px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect for the arrow icon */
+.menu-link:hover .arrow-icon {
+  color: #007BFF; /* Changes arrow color on hover */
+  transform: translateX(5px); /* Moves the arrow slightly to the right */
+}
+
+/* Existing focus styles are already handling color, background, and triangle */
+/* You can add more focus styles if desired, such as outline */
+.menu-link:focus {
+  outline: 2px dashed #007BFF; /* Adds a dashed outline for better visibility */
+  outline-offset: 4px; /* Space between the outline and the element */
+}
+
+
+:root {
+  --default-text-color: #333;
+  --hover-text-color: #FF5733;
+  --triangle-color: #333;
+  --triangle-hover-color: #007BFF;
+  --background-hover-color: rgba(255, 87, 51, 0.1);
+  --underline-color: #007BFF;
+}
+
+/* Update the CSS to use variables */
+.menu-link {
+  color: var(--default-text-color);
+  /* ... other styles ... */
+}
+
+.menu-link::after {
+  border-left-color: var(--triangle-color);
+  /* ... other styles ... */
+}
+
+.menu-link:hover {
+  color: var(--hover-text-color);
+  background-color: var(--background-hover-color);
+  /* ... other styles ... */
+}
+
+.menu-link:hover::after {
+  border-left-color: var(--triangle-hover-color);
+  /* ... other styles ... */
+}
+
+.menu-link::before {
+  background-color: var(--underline-color);
+  /* ... other styles ... */
+}
